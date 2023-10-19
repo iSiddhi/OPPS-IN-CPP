@@ -1,0 +1,37 @@
+// You are using GCC
+#include<iostream>
+using namespace std;
+class Employee{
+    public:
+    int id;
+    int salary;
+    string name;
+    Employee(int i,int s,string n)
+
+{
+    id=i;
+    salary=s;
+    name=n;
+    
+}
+
+    void display()
+    {
+        cout<<id<<" "<<salary<<" "<<name<<" "<<endl;
+    }
+    
+};
+
+int main(void){
+    Employee e1=Employee(1,2000,"siddhi");
+    Employee e2=Employee(2,3000,"samiksha");
+    
+  
+    e1.display();
+    e2.display();
+    
+
+return 0;
+}
+
+// siddhi
