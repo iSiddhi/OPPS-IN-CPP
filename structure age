@@ -1,0 +1,15 @@
+// You are using GCC
+#include<iostream>
+using namespace std;
+struct family{
+    int max_age;
+    int min_age;
+};
+int main(void)
+{
+    struct family fam;
+    fam.max_age=70;
+    fam.min_age=2;
+    cout<<"average age of family is "<<(fam.max_age + fam.min_age)<<endl;
+    return 0;
+}
