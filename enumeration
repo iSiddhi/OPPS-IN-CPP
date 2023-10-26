@@ -1,0 +1,14 @@
+// You are using GCC
+#include<iostream>
+using namespace std;
+enum week{
+    monday,tuesday,wednesday,thrusday,fri,sat,sunday
+};
+int main()
+{
+    week day;
+    day=fri;
+    cout<<"day "<<day+1<<endl;
+    return 0;
+}
+// siddhi code
