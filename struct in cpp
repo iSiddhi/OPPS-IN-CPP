@@ -1,0 +1,15 @@
+// You are using GCC
+#include<iostream>
+using namespace std;
+struct rectangle{
+    int width;
+    int length;
+};
+int main(void){
+    struct rectangle rect;
+    rect.length=2;
+    rect.width=5;
+    cout<<"area of reactangle is "<<(rect.length*rect.width)<<endl;
+    return 0;
+    
+}
