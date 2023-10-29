@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <pthread.h>
+
+// Define a structure for an account
+struct account {
+    int accountnum;
+    int balance;
+    pthread_mutex_t lock;  // Mutex for locking the account
+};
+
+// Initialize account locks
+void initialize_account(struct account *acc) {
+    pthread_mutex_init(&(acc->lock), NULL);
+}
+
+// Lock function
+void dolock(pthread_mutex_t *mutex) {
+    pthread_mutex_lock(mutex);
+}
+
+// Unlock function
+void unlock(pthread_mutex_t *mutex) {
+    pthread_mutex_unlock(mutex);
+}
+
+void transfer(struct account *from, struct account *to, int amount) {
+    // Lock the accounts in ascending order of account numbers to avoid deadlock.
+    if (from->accountnum < to->accountnum) {
+        dolock(&(from->lock));
+        dolock(&(to->lock));
+    } else if (from->accountnum > to->accountnum) {
+        dolock(&(to->lock));
+        dolock(&(from->lock));
+    } else {
+        // If both accounts have the same account number, handle this situation gracefully.
+        // In practice, this might not occur if the account numbers are unique.
+        // You should decide how to handle this based on your requirements.
+        dolock(&(from->lock));
+        dolock(&(to->lock));
+    }
+
+    // Critical section: Transfer money.
+    from->balance -= amount;
+    to->balance += amount;
+
+    // Unlock the accounts in reverse order to avoid deadlock.
+    unlock(&(to->lock));
+    unlock(&(from->lock));
+}
+
+int main() {
+    // Create two account structures and initialize their locks
+    struct account acc1 = {1, 100, PTHREAD_MUTEX_INITIALIZER};
+    struct account acc2 = {2, 200, PTHREAD_MUTEX_INITIALIZER};
+
+    // Perform a money transfer
+    transfer(&acc1, &acc2, 50);
+
+    // Check the new balances
+    printf("Account 1 balance: %d\n", acc1.balance);
+    printf("Account 2 balance: %d\n", acc2.balance);
+
+    return 0;
+}
