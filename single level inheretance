@@ -1,0 +1,21 @@
+// You are using GCC
+// derived class 
+#include<iostream>
+using namespace std;
+class Account {
+    public:
+    float salary=500;
+    
+};
+class Programmer:public Account{
+    public:
+    float bonus =300;
+    
+};
+int main(void){
+    Programmer p1;
+    cout<<"salary"<<p1.salary<<endl;
+    cout<<"bonus"<<p1.bonus<<endl;
+    return 0;
+}
+single level inheretnce//
