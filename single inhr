@@ -1,0 +1,23 @@
+// You are using GCC
+#include<iostream>
+using namespace std;
+class Temple{
+    public:
+    void ram()
+    {
+        cout<<"sita"<<endl;
+    }
+};
+class Mathura :public Temple{
+    public:
+    void kanha()
+    {
+        cout<<"radha"<<endl;
+    }
+};
+int main(void){
+    Mathura k1;
+    k1.ram();
+    k1.kanha();
+    return 0;
+}
