@@ -1,0 +1,20 @@
+// You are using GCC
+// derived class 
+#include<iostream>
+using namespace std;
+class family{
+    public:
+    int members=5;
+};
+class children:public family{
+    public:
+    int child=3;
+};
+int main(void){
+    children c1;
+    cout<<"MEMBERS:"<<c1.members<<endl;
+    cout<<"Children:"<<c1.child<<endl;
+    return 0;
+}
+
+//SINGLE LEVEL INHERITANCE
