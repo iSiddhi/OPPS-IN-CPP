@@ -1,0 +1,26 @@
+// You are using GCC
+// derived class 
+#include<iostream>
+using namespace std;
+class Animal{
+    public:
+    void eat(){
+        cout<<"eatinggg...."<<endl;
+    }
+};
+class Dog:public Animal
+{
+    public:
+    void bark()
+    {
+        cout<<"barking....";
+    }
+};
+int main(void){
+    Dog d1;
+    d1.eat();
+    d1.bark();
+    return 0;
+}
+
+
