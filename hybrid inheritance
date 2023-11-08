@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+class A{
+    protected:
+    int a;
+    public:
+    void get_a()
+    {
+        std::cout<<"enter the value of a"<<std::endl;
+    }
+};
+class B :public A{
+    protected:
+    int b;
+    public:
+    void get_b()
+    {
+        std::cout<<"enter the value"<<std::endl;
+    }
+};
+class C {
+    protected:
+    int c;
+    public:
+    void get_c()
+    {
+        std::cout<<"enter the value of c"<<std::endl;
+        
+    }
+};
+class D: public B,public C{
+    protected:
+    int d;
+    public:
+    void multiply()
+    {
+        get_a();
+        get_c();
+        get_b();
+        std::cout<<"multiply"<<a*b*c<<std::endl;
+        
+        
+    }
+};
+int main()
+{
+    D d;
+    d.multiply();
+    return 0;
+}
