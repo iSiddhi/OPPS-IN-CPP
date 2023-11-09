@@ -1,0 +1,16 @@
+
+include <bits/stdc++.h>
+using namespace std;
+ 
+// A binary tree tNode has data, a pointer to left child
+// and a pointer to right child
+struct tNode {
+    int data;
+    struct tNode* left;
+    struct tNode* right;
+};
+ 
+// Function to traverse the binary tree 
+// without recursion and without stack
+void inOrder(struct tNode* ro
+
